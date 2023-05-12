@@ -1,0 +1,29 @@
+<h2>登録済み作品一覧</h2>
+<table>
+<thead>
+<tr>
+<th>作品画像</th>
+<th>タイトル名</th>
+<th>作品紹介</th>
+<th>登録日</th>
+</tr>
+
+
+</thead>
+<tbody>
+
+<% @display.each do |display| %>
+
+<tr>
+<td>
+
+<%= image_tag display.image ,size: "300x250" if display.image.attached %><!--この文がdbから写真画像を表示させている -->
+<td><%= link_to "#{display.display_name}"%> </td>
+<td> <%= display.introduction %></td>
+<td> <%= display.created_at.to_s(:datetime_jp) %></td>
+<tr>
+
+
+</tbody>
+
+<% end %>
