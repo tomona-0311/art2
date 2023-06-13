@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 gem 'devise'
+gem'pry-nav' 
 ruby '2.7.6'
 ruby '2.7.8'
 gem 'pry-rails'

@@ -5,14 +5,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  # def new
+   def new
   #   super
-  # end
+   end
 
   # POST /resource
-  # def create
+ def create
   #   super
-  # end
+  end
+def after_sign_up_path_for(resource)
+ flash[:notice] = "新規登録完了しました。次に名前と作品を入力してください"
+ displays_new_path
+end
 
   # GET /resource/edit
   # def edit

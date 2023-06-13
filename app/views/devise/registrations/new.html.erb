@@ -7,7 +7,10 @@
     <%= f.label :名前%><br />
     <%= f.text_field :name, placeholder:"名前の入力",autofocus: true %>
   </div>
-
+<div class="field">
+    <%= f.label :ID %><br />
+    <%= f.email_field :email,placeholder:"メールID", autofocus: true, autocomplete: "メールID" %>
+  </div>
   <div class="field">
     <%= f.label :パスワード%>
     <% if @minimum_password_length %>

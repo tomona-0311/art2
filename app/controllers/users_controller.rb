@@ -1,5 +1,5 @@
-class UserController < ApplicationController
- 
+class UsersController < ApplicationController
+
 def new
 @user = User.new(params.require(:user).permit(:name))
 if @user.save
