@@ -2,34 +2,30 @@ class DisplaysController < ApplicationController
   #before_action :authenticate_user!
 
   def index
-    @display = Display.all
-
-    @user = current_user
-    @display.image.attach(params[:image])
+    @displays = Display.all
   end
 
   def new
-    @user = current_user
     @display = Display.new
   end
 
   def create
-    @user = current_user
-    @display = Display.create!(display_params)
-
+  #display.image.attach(display_params[:image])
+  binding.pry
+    @display = Display.create(display_params)
+    binding.pry
     if @display.save
-
+      puts "保存に成功しました"
+      binding.pry
+      flash[:notion] = "作品登録完了"
       redirect_to :displays# ＠displayとすることでDBから取得したデータを指定すると、そのコントローラーのshowアクションに該当するページに遷移する。「redirect_to パラメータ」
    else
+    puts "保存に失敗しました"
      render "new"
    end
-
-  end
-
-   private
-
-   def display_params
-    params.require(:display).permit(:display_name, :introduction, :image)
   end
 end
-
+private
+def display_params
+params.require(:display).permit(:image)
+end

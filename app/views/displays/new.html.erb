@@ -3,16 +3,10 @@
 <%= form_with model: @display, local: true  do |f| %>
 <table>
 <tr>
-<th><%=f.label :display_name,"タイトル"%></th>
-<td><%=f.text_field :display_name ,placeholder:"タイトルを入力"%></td>
-</tr>
-<tr>
-<th><%=f.label :introduction,"作品紹介"%></th>
-<td><%=f.text_field :introduction,placeholder:"作品の説明を入力" %></td>
-</tr>
-<tr>
+<div class="field">
 <th><%=f.label :image,"作品画像"%></th>
 <td><%=f.file_field :image,placeholder:"作品を添付" %></td>
+</div>
 </tr>
 </table>
 
@@ -21,10 +15,6 @@
 <li><%=f.submit"登録完了"%></li>
 </ul>
 </div>
-<% if @display.persisted? %>
-  <div data-index="<%= @display.images.count %>" class="js-file_group">
-    <%= file_field_tag :src, name: "display[images_attributes][#{@display.images.count}][src]", class: 'js-file' %>
-    <div class="js-remove">削除</div>
-  </div>
-<% end %>
+
+
 <%end%>

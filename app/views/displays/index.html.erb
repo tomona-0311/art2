@@ -12,14 +12,16 @@
 </thead>
 <tbody>
 
-<% @display.each do |display| %>
+
 
 <tr>
 <td>
+<% if @post.image.attached? %>
+ <%= image_tag @display.image %>
+<% end %>
 
-<%= image_tag display.image ,size: "300x250" if display.image.attached %><!--この文がdbから写真画像を表示させている -->
-<td><%= link_to "#{display.display_name}"%> </td>
-<td> <%= display.introduction %></td>
+<!--この文がdbから写真画像を表示させている -->
+
 <td> <%= display.created_at.to_s(:datetime_jp) %></td>
 <tr>
 

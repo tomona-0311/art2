@@ -13,3 +13,4 @@ class PostController < ApplicationController
     render "new",status: :unprocessable_entity
   end
 end
+end
