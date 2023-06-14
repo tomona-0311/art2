@@ -4,11 +4,11 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :名前%><br />
+    <%= f.label :名前%><br/>
     <%= f.text_field :name, placeholder:"名前の入力",autofocus: true %>
   </div>
 <div class="field">
-    <%= f.label :ID %><br />
+    <%= f.label :ID %><br/>
     <%= f.email_field :email,placeholder:"メールID", autofocus: true, autocomplete: "メールID" %>
   </div>
   <div class="field">
@@ -20,7 +20,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :パスワード確認 %><br />
+    <%= f.label :パスワード確認 %><br/>
     <%= f.password_field :password_confirmation, placeholder:"パスワード入力", autocomplete: "new-password" %>
   </div>
 

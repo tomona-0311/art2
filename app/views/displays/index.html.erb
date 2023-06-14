@@ -12,20 +12,21 @@
 </thead>
 <tbody>
 
-
+<% @displays. each do |display| %>
 
 <tr>
-<td>
-<% if @post.image.attached? %>
- <%= image_tag @display.image %>
-<% end %>
+<td> <%=  image_tag display.image ,size: "270x370" if display.image.present? %><!--この文がdbから写真画像を表示させている --></td>
+
+<td><%= link_to "#{display.display_name}", {controller: 'displays', action: 'show', id: display.id} %> </td>
+<td> <%= display.introduction%> </td>
+
+
 
 <!--この文がdbから写真画像を表示させている -->
 
-<td> <%= display.created_at.to_s(:datetime_jp) %></td>
-<tr>
-
-
-</tbody>
+<td> <%= display.created_at.strftime('%Y/%m/%d %H:%M:%S') %></td>
+</tr>
 
 <% end %>
+</tbody>
+

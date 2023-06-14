@@ -11,13 +11,12 @@ class DisplaysController < ApplicationController
 
   def create
   #display.image.attach(display_params[:image])
-  binding.pry
+
     @display = Display.create(display_params)
-    binding.pry
+
     if @display.save
       puts "保存に成功しました"
-      binding.pry
-      flash[:notion] = "作品登録完了"
+          flash[:notion] = "作品登録完了"
       redirect_to :displays# ＠displayとすることでDBから取得したデータを指定すると、そのコントローラーのshowアクションに該当するページに遷移する。「redirect_to パラメータ」
    else
     puts "保存に失敗しました"
@@ -27,5 +26,5 @@ class DisplaysController < ApplicationController
 end
 private
 def display_params
-params.require(:display).permit(:image)
+params.require(:display).permit(:image,:introduction,:display_name)
 end
