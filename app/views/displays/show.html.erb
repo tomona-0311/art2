@@ -1,0 +1,23 @@
+<!-- post.html.newのコメント登録-->
+
+<h3>作品</h3>
+
+<% if @display.image.attached? %>
+  <%= image_tag @display.image %>
+<% end %>
+
+<%= binding.pry%>
+タイトル:
+<%= @display.display_name %><br>
+作品紹介：
+<%= @display.introduction %><br>
+
+<%= form_with model: @post, method: :get, url: new_display_post_path(@display.id) do |f| %>
+
+<%= f.hidden_field :display_id, :value => @display.id %>
+<%= f.label :comment, "コメント入力"%>
+<%= f.text_field :comment %>
+
+<%= f.submit "コメント入力する",class:"form-control btn btn-primary"%>
+
+<% end %>
